@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>User Attendance</title>
+    <script>
+        function registerFace(event) {
+            event.preventDefault();
+            const name = document.querySelector('input[name="name"]').value;
+            fetch('{{ url_for("register") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({ 'name': name })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+            });
+        }
+
+        function markAttendance(event) {
+            event.preventDefault();
+            fetch('{{ url_for("mark_attendance_route") }}', {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container1">
+        <div id="camera-container">
+            <img src="{{ url_for('video_feed') }}" alt="Video Feed">
+        </div>
+        <div class="controls">
+            <h1>Mark Attendance</h1>
+            <form onsubmit="registerFace(event)">
+                <input type="text" name="name" placeholder="Enter name to register" required>
+                <button type="submit">Register Face</button>
+            </form>
+            <form onsubmit="markAttendance(event)">
+                <button type="submit">Mark Attendance</button>
+            </form>
+            <p id="message"></p>
+        </div>
+    </div>
+</body>
+</html>

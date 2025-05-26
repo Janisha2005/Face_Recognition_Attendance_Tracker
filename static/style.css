@@ -1,0 +1,96 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../static/background.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b0c4de;
+}
+
+/* Container styling */
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    height: 60%;
+    background-color: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.container1 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-column {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+}
+
+/* Headings */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #c0c0c0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+.button, .btn, button {
+    padding: 12px 24px;
+    background-color: rgba(30, 144, 255, 0.8);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.button:hover, .btn:hover, button:hover {
+    background-color: rgba(70, 130, 180, 0.8);
+}
+
+/* Forms and Inputs */
+input, button{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+#camera-container {
+    border: 2px solid black;
+    width: 640px;
+    height: 480px;
+    display: block;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#message {
+    margin-top: 10px;
+}

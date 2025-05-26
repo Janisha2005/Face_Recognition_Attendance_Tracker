@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Attendance System</title>
+    <script>
+        function handleUserClick(event) {
+            event.preventDefault();
+            location.href='{{ url_for("user_page") }}';
+        }
+
+        function handleAdminClick(event) {
+            event.preventDefault();
+            location.href='{{ url_for("admin_page") }}';
+        }
+    </script>
+</head>
+<body >
+    <div class="container">
+        <div class="left-column"></div>
+        <div class="right-column">
+            <h1>Smart Attendance Tracker</h1>
+            <div class="button-container">
+                <button class="btn" onclick="handleAdminClick(event)">Admin</button>
+                <button class="btn" onclick="handleUserClick(event)">User</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>User Attendance</title>
+    <script>
+        function calculate_attendance(event) {
+            event.preventDefault();
+            const name = document.querySelector('input[name="name"]').value;
+            fetch('{{ url_for("calculate_attendance") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({ 'name': name })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-column"></div>
+        <div class="right-column">
+            <h1>Calculate Attendance</h1>
+            <form onsubmit="calculate_attendance(event)">
+                <input type="text" name="name" placeholder="Enter name" required>
+                <button type="submit">Calculate</button>
+            </form>
+            <p id="message"></p>
+        </div>
+    </div>
+</body>
+</html>
