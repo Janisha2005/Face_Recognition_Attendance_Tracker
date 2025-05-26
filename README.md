@@ -14,14 +14,14 @@ The admin can view attendance statistics for registered users.
 
 ## 📁 Project Structure
 
-├── app.py # Main Flask application
-├── face_recognition.py # Face recognition and attendance logic
-├── templates/
-│ ├── index.html # Homepage
-│ ├── user.html # User interface for registration & marking attendance
-│ ├── admin.html # Admin interface to view attendance stats
-├── static/
-│ └── style.css # CSS styling (you may add this if not yet created)
-├── registered_faces/ # Folder to store registered face images
-├── yearly_attendance.csv # CSV file storing attendance data
-├── requirements.txt # Python dependencies
+- ├── app.py # Main Flask application
+- ├── face_recognition.py # Face recognition and attendance logic
+- ├── templates/
+- │ ├── index.html # Homepage
+- │ ├── user.html # User interface for registration & marking attendance
+- │ ├── admin.html # Admin interface to view attendance stats
+- ├── static/
+- │ └── style.css # CSS styling (you may add this if not yet created)
+- ├── registered_faces/ # Folder to store registered face images
+- ├── yearly_attendance.csv # CSV file storing attendance data
+- ├── requirements.txt # Python dependencies
